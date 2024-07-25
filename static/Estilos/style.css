@@ -1,0 +1,87 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root{
+    --main_font: "PT Sans", sans-serif;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+html{
+    height: 100%;
+}
+body{
+    background-image: url("../Imagens/business-962316_1920.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+}
+
+#side_menu{
+    position: fixed;
+    font-family: var(--main_font);
+    overflow-x: hidden;
+    top: 0;
+    background-color: #332F1D;
+    background-image: linear-gradient(to bottom, #332F1D,#7b724c);
+    width: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1;
+}
+#side_menu > ul{
+    list-style-type: none;
+    padding: 10px;
+}
+#side_menu > ul > li{
+    padding: 10px;
+    text-align: center;
+}
+#side_menu > ul > li > a{
+    color: #b8a44a;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+#side_menu > ul > li > a:hover{
+    color: #b5a76867;
+    transition: 0.5s;
+}
+.Logo{
+    width: 100px; 
+}
+.closed{
+    font-size: 36px;
+}
+span{
+    color: #ac9e5f;
+    cursor: pointer;
+    font-size: 36px;
+}
+#back{
+    position: absolute;
+    font-family: var(--main_font);
+    background-color: #433e26d7;
+    color: #c9b352;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    max-width: 70%;
+    height: 200px;
+    top: 40%;
+    display: flex;
+    box-shadow: 2px 12px 21px rgba(0, 0, 0, 0.559);
+}
+#back > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+#back > div > p,h1{
+    max-width: 450px;
+    padding: 10px;
+}

@@ -1,0 +1,41 @@
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance</title>
+    <link rel="stylesheet" href="{% static 'Estilos/login.css' %}">
+    <link rel="shortcut icon" href="{% static 'Imagens/favicon.ico' %}" type="image/x-icon">
+
+</head>
+<body>
+    <section>
+        <div class="content" id="logo">
+            <img src="{% static 'Imagens/logo-removebg-preview.png' %}" alt="Logo">
+        </div>
+        <div class="content" id="formulario">
+            <div id="main_form">
+                <hr>
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <label for="iuser">Username</label>
+                    <input type="email" name="email" id="iuser" placeholder="Enter your email" required>
+                    <label for="ipass">Password</label>
+                    <input type="password" name="password" id="ipass" placeholder="Enter password" required>
+                    <input type="submit" value="Login">
+                    <a href="{% url 'index' %}">Back</a>
+                </form>
+                </div>
+                <div>
+                    {% if error %}
+                        <p style="color:red;">{{ error }}</p>
+                    {% endif %}
+                </div>
+        </div>
+    </section>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,185 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance</title>
+    <link rel="shortcut icon" href="{% static 'Imagens/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'Estilos/espense.css' %}">
+    
+    <style>
+        .botao {
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            text-align: center;
+            width: 60px; 
+        }
+        .botao.editar {
+            background-color: yellow;
+            color: black;
+        }
+        .botao.apagar {
+            background-color: red;
+        }
+        .botao:hover {
+            opacity: 0.8;
+        }
+        .alert > p {
+            text-align: center;
+            color: red;
+            font-size: 25px;
+        }
+        #eliminar{
+            background-color: red;
+            width: 80px;
+        }
+        #logout{
+            margin: auto;
+            margin-top: 10px;
+        }
+        #logout > a{
+            text-decoration: none;
+            color: #fff;
+            padding: 10px;
+            height: 30px;
+            background-color: rgba(255, 0, 0, 0.669);
+            border-radius: 10px;
+        }
+        #logout > a:hover{
+            background-color: rgba(255, 0, 0, 0.317);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Manage your Finance</h1>
+        <p id="logout"><a href="{% url 'logout' %}">Logout</a></p>
+    </header>
+    
+    <main class="conteiner">
+        <section class="content">
+            <h6>Balance</h6>
+            <ul>
+                {% for money in expense %}
+                    {% if money.category == "Salário" %}
+                        <li style="color: green; font-size: 25px; font-weight: bold;">Balance: +€ {{money.amount_earn}}</li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if salario >= 0 %}
+                    <li>{{salario}}</li>
+                {% endif %}
+                <li><li id="imagem"><img src="{% static 'Imagens/bank.png' %}" alt="euro logo"></li></li>
+            </ul>
+        </section>
+
+        <section class="content">
+            <h6>Monthly expenses</h6>
+            <ul>
+                <li><h3 style="color: red;">Expenses: -€ {{spend}}</h3></li>
+            </ul>
+        </section>
+
+        <section class="content">
+            <h6>Balance</h6>
+            <ul>
+                <li><h3>- € 1500</h3></li>
+                <li id="imagem"><img src="{% static 'Imagens/bank.png' %}" alt="euro logo"></li></li>
+            </ul>
+        </section>
+    </main>
+
+    <section id="actions">
+        <div class="act">
+            <form action="{% url 'expense' %}" method="post">
+                {% csrf_token %}
+                <div class="formulario">
+                    <label for="idescr">Description</label> <br>
+                    <input type="text" name="descricao" id="idescr" placeholder="describe here" required>
+                </div>
+
+                <div class="formulario">
+                    <label for="ivalor">Value</label> <br>
+                    <input type="number" name="valor" id="ivalor" placeholder="enter the value" required> 
+                </div>
+
+                <div class="formulario">
+                    <label for="icat">Category</label> <br>
+                    <select name="categoria" id="icat">
+                        <option value="select">Escolha uma opção...</option>
+                        {% for cat in categoria %}
+                            <option value="{{cat}}">{{cat}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="formulario">
+                    <label for="date">Date</label>
+                    <input type="date" name="date" id="date" required>
+                </div>
+
+                <div class="formulario">
+                    <label for="idespesa">Despesa</label>
+                    <input type="radio" name="escolha" id="idespesa" value="Despesa">
+                    <label for="irend">Rendimento</label>
+                    <input type="radio" name="escolha" id="irend" value="Rendimento">
+                </div>
+                
+                <div class="formulario">
+                    <input type="submit" value="Adicionar">
+                    <input type="reset" value="Limpar">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="table">
+        <div class="alert">
+            
+            {% if success %}
+                <p style="color: green;">{{ success }}</p>
+            {% endif %}
+
+            {% if error %}
+                <p>{{ error }}</p>
+            {% endif %}
+        </div>
+        <div id="show">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Value</th>
+                        <th>Category</th>
+                        <th>Tipo</th>
+                        <th>Date</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for exp in expense %}
+                        <tr>
+                            <td>{{ exp.expense_name }}</td>
+                            <td>€ {{ exp.expense_value }}</td>
+                            <td>{{ exp.category }}</td>
+                            <td>{{ exp.choose }}</td>
+                            <td>{{ exp.date }}</td>
+                            <td>
+                                <a href="{% url 'index' %}" class="botao editar">Editar</a>
+                                <a href="{% url 'index' %}" class="botao editar" id="eliminar">Eliminar</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script src="{% static 'scripts.js' %}"></script>
+</body>
+</html>
+{% endblock %}

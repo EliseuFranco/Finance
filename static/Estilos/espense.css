@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "PT Sans", sans-serif;
+    background-color: #433e2671;
+}
+
+header {
+    background-image: linear-gradient(to right, #433e26d7, #a5964e);
+    color: #fff;
+    padding: 10px;
+    width: 100%;
+    height: 150px;
+    text-align: center;
+}
+
+.conteiner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-top: -50px;
+}
+
+.content {
+    z-index: 1;
+    margin: 5px;
+    width: 300px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: #433e26;
+    color: #a5964e;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.651);
+}
+
+.content:hover {
+    transform: translate(-1px, -1px);
+    transition: 0.3s;
+}
+
+.content > h6 {
+    font-size: 17px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 10px;
+}
+
+ul > li {
+    font-size: 20px;
+}
+
+img {
+    width: 80px;
+}
+
+#imagem {
+    text-align: center;
+}
+
+#actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 90%;
+    height: 150px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #433e26;
+}
+
+.act {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a5964e;
+}
+
+.formulario {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 17px;
+}
+
+input[type=text], input[type=number] {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.621);
+    height: 30px;
+}
+
+input[type=submit], input[type=reset] {
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    border-radius: 7px;
+    background-color: #32EB78;
+    border: 1px solid rgba(0, 0, 0, 0.591);
+}
+
+input[type=reset] {
+    background-color: rgba(250, 22, 22, 0.881);
+}
+
+input[type=submit]:hover {
+    background-color: #32eb7979;
+    transition: 0.5s;
+}
+
+input[type=reset]:hover {
+    background-color: #eb323279;
+    transition: 0.5s;
+}
+
+select {
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+}
+
+option {
+    background-color: lightgray;
+}
+
+::placeholder {
+    padding: 10px;
+}
+
+.table {
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #a5964e;
+    width: 90%;
+    border-collapse: collapse;
+}
+#show{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table > h3 {
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 8px;
+}
+
+table {
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid #00000079;
+}
+
+table th {
+    background-color: #433e2698;
+    color: #fff;
+}
+
+td {
+    text-align: center;
+}
+
+.botao {
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    min-width: 60px;
+    margin: 2px;
+}
+
+.botao.editar {
+    background-color: yellow;
+    color: black;
+}
+
+.botao.apagar {
+    background-color: red;
+}
+
+.botao:hover {
+    opacity: 0.8;
+}

@@ -1,0 +1,42 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance</title>
+    <link rel="stylesheet" href="{% static 'Estilos/style.css' %}">
+    <link rel="stylesheet" href="{% static 'Estilos/bigscreen.css' %}">
+    <link rel="shortcut icon" href="{% static 'Imagens/favicon.ico' %}" type="image/x-icon">
+</head>
+<body onresize="screen_Changed()">
+    <header>
+        
+    </header>
+    <nav id="side_menu">
+        <ul class="nav_Elements">
+            <li><a href="{% url 'index' %}" class="Logo"><img src="{% static 'Imagens/logo-removebg-preview.png' %}" alt="Logo tipo" class="Logo"></a></li>
+            <li id="closed"><a href="javascript:void(0)" onclick="show_Menu()" style="font-size: 36px; text-align: right;">&times;</a></li>
+            <li><a href="{% url 'expense' %}" class="men">Expenses</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            
+        </ul>
+    </nav>
+    <span onclick="show_Menu()">&#9776;</span>
+
+    <section id="back">
+        <div>
+            <h1>Manage your Finance</h1>
+            <p>
+                Your finances in one place
+                Manage your income and expenses
+            </p>
+        </div>
+    </section>
+
+    <script src="{% static 'scripts.js' %}"></script>
+</body>
+</html>
+{% endblock %}

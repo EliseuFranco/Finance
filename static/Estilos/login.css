@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+body {
+    font-family: "PT Sans", sans-serif;
+    background-image: linear-gradient(to right, #433e26d7, #a5964e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section {
+    width: 400px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#logo {
+    width: 300px;
+    margin-bottom: 20px;
+}
+#logo > img {
+    display: block;
+    width: 200px;
+}
+#formulario {
+    width: 300px;
+}
+#main_form {
+    width: 100%;
+}
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+input[type=email], input[type=password] {
+    width: 100%;
+    height: 32px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.217);
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+input[type=submit]{
+    cursor: pointer;
+    width: 100px;
+    padding: 5px;
+    background-color: #DCC359;
+    border: 1px solid rgba(0, 0, 0, 0.498);
+    border-radius: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.217);
+}
+input[type=submit]:hover{
+    background-color: #ac9f5aee;
+}
+::placeholder{
+    color: #00000050
+
+    ;
+}
+a {
+    color: #665c2f;
+    margin: 10px;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 7px;
+}
+
+a:hover{
+    background-color: #dcc4592d;
+}
+
+@media screen and (min-width: 668px) {
+    section {
+        width: 700px;
+        height: 450px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    #logo > img {
+        display: block;
+        width: 100%;
+    }
+    
+}
